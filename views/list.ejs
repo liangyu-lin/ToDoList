@@ -6,30 +6,35 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>To Do List</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
     <script src='app.js'></script>
 </head>
 
 <body>
 
-    <h1>It is <%=kindOfDay%> !</h1>
+    <div class="box" id="heading">
+        <h1>Today is <%=kindOfDay%> </h1>
+    </div>
 
-    <ul>
-
+    <div class="box">
 
         <%  for (let i = 0; i<newListItems.length; i++) { %>
-        <li><%= newListItems[i] %></li>
+
+        <div class="item">
+            <input type="checkbox">
+            <p><%= newListItems[i] %></p>
+        </div>
         <%  } %>
 
-    </ul>
 
+        <form class="item" action="/" method="post">
+            <input type="text" name="newItem" placeholder="Add New Item" autocomplete="off">
+            <button type="submit" name="button">+</button>
 
-    <form action="/" method="post">
-        <input type="text" name="newItem">
-        <button type="submit" name="button">Add Item</button>
-
-    </form>
-
+        </form>
+    </div>
 </body>
 
 </html>
